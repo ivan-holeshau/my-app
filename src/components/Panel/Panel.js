@@ -17,19 +17,20 @@ class Panel extends Component {
 
     onDeleteHandler(index) {
         const list = this.state.list;
-        let removed = list.splice(index, 1);
+        list.splice(index, 1);
         this.setState({ list: list })
     }
 
     addListHandler(event) {
-        if( Number.parseInt(event.state.price)){
-        console.log(event)
-        const item = { name: event.state.name ? event.state.name : 'no name', price: event.state.price };
-        const list = this.state.list;
-        list.push(item);
-        this.setState({ list })
-        event.state.name = "";
-        event.state.price = "";}
+        if (Number.parseInt(event.state.price)) {
+            console.log(event)
+            const item = { name: event.state.name ? event.state.name : 'no name', price: event.state.price };
+            const list = this.state.list;
+            list.push(item);
+            this.setState({ list })
+            event.state.name = "";
+            event.state.price = "";
+        }
         else {
             alert('price is not number')
         }
@@ -39,17 +40,11 @@ class Panel extends Component {
         this.setState({ search: event.target.value })
     }
 
-    onChangeHandleSearch(event) { 
-       this.setState({ search: event.target.value })
+    onChangeHandleSearch(event) {
+        this.setState({ search: event.target.value })
     }
 
     render() {
-        const style = {
-            border: '1px solid black',
-            width: '70px',
-            height: '30px'
-        }
-
         return (
 
             <div className='panel'>
